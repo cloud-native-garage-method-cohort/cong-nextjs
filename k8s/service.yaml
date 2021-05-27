@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cong-nextjs
+    app.kubernetes.io/instance: cong-nextjs
+    app.kubernetes.io/name: cong-nextjs
+  name: cong-nextjs
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: cong-nextjs
+    app.kubernetes.io/name: cong-nextjs
+  sessionAffinity: None
+  type: ClusterIP
